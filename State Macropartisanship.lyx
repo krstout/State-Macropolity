@@ -1,0 +1,437 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement !tp
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+One of the most important considerations in American voting behavior is
+ party identification.
+ It is intended to measure a person's affinity for a particular party 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "campbell1960theamerican"
+
+\end_inset
+
+.
+ Partisan attachment is meant to be more than just a temporary connection.
+ It should be resistant to change, but previous research has debated the
+ stability of party ID.
+ Previous work on aggregate partisanship stability produced conflicting
+ answers.
+ MacKuen, Erikson, and Stimson (1989) find that aggregate macropartisanship,
+ a measure of Democrats over the total number of Democrats and Republicans,
+ is much more responsive to short term influences than previously imagined
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "mackuen1989macropartisanship"
+
+\end_inset
+
+.
+ Green, Palmquist and Schickler (1998) respond with a critique of the methodolog
+y used by MacKuen et al., finding aggregate macropartisanship to be much
+ more stable 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "green1998macropartisanship"
+
+\end_inset
+
+.
+ Green et al.
+ further explain these results in their book 
+\emph on
+Partisan Hearts and Minds
+\emph default
+ where national macropartisanship is shown to change more permanently in
+ response to economic evaluations and presidential approval 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "greenpartisan"
+
+\end_inset
+
+.
+ In contrast to the individual level where shocks should not upset party
+ ID, aggregate macropartisanship should respond to economic and political
+ evaluations because new groups of people are entering the macropartisan
+ pool.
+ Evaluations have a longer term effect because they are setting a political
+ attachment for new groups which produce strong ties to certain political
+ parties.
+ 
+\end_layout
+
+\begin_layout Standard
+Previous studies have debated the stability of macropartisanship either
+ on the individual level or the aggregate level but always on a national
+ level.
+ Measures of macropartisanship on the state level have not existed until
+ recently.
+ Early measures disaggregated CBS/NYT national polls asking party ID questions
+ to arrive at measures of partisanship at the state level 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "wright1985measuring"
+
+\end_inset
+
+.
+ Recent efforts have used polls such as the CCES to estimate state level
+ partisanship 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "carsey2010newmeasures"
+
+\end_inset
+
+ and multilevel regression with postratification (MRP) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pacheco2011usingnational"
+
+\end_inset
+
+, but these efforts only measure state level partisanship back to the early
+ 1970s.
+ Enns and Koch have recently utilized MRP and CBS/NYT polls to measure state
+ partisanship back to the 1950s (2013)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "enns2013publicopinion"
+
+\end_inset
+
+.
+ Extending state level partisan measurement creates an opportunity to examine
+ the change in state partisanship during politically important times.
+ Pushing the starting line back to the 1956 allows us to examine changes
+ in party ID as the country went from ideologically unsorted parties to
+ ideologically homogenous and polarized parties that we experience now.
+ 
+\end_layout
+
+\begin_layout Standard
+Over the past 50 years, the partisan tilt of many states has changed dramaticall
+y.
+ 
+\end_layout
+
+\begin_layout Section*
+Methods and Data
+\end_layout
+
+\begin_layout Standard
+In this section, I introduce the methodology and then the data used.
+ To examine changes in aggregate macropartisanship at the state level, I
+ use time series analysis used by Green et al.
+ in 
+\emph on
+Partisan Hearts and Minds
+\emph default
+ (2002).
+ Green et al.
+ use a model where macropartisanship is a function of macropartisanship
+ lagged one time period, economic evaluations, and presidential approval.
+ Economic evaluations and approval used to explain changes in macropartisanship.
+ The model assumes that these two measures are driving macropartisanship
+ change.
+ Party dummies are also added to economic evaluations and approval to indicate
+ which party is occupying the White House when change is occurring.
+ A healthy economy operating under a Democratic administration can explain
+ an increase in macropartisanship, while a well performing economy under
+ a Republican can explain a decrease in the number of Democratic identifiers
+ compared to Republican identifiers.
+ It's a similar process for approval where positive judgments of the ruling
+ party can modify the party identifications in the electorate.
+\end_layout
+
+\begin_layout Standard
+The lagged variable for macropartisanship serves a crucial role of determining
+ how permanent any change is to the time series.
+ A value closer to 1 indicates that change is more permanent (Green et al.
+ 2002).
+ A value near zero means that any change in macropartisanship dissipates
+ quickly.
+ Green et al.
+ find that the lagged macropartisanship variable on an individual level
+ is very low (Green et al.
+ 2002, p.
+ 65).
+ This fits well for individuals.
+ A single person should be unlikely to change his or her party identification,
+ especially over the short term.
+ Party ID is meant to indicate a long term affinity and not just short range
+ views or a voting history.
+ If voters quickly adapted to changes in the economy or presidential approval,
+ party ID would be less stable and probably less useful as a measure.
+ 
+\end_layout
+
+\begin_layout Standard
+However, the story is opposite when considering aggregate macropartisanship.
+ Looking at the electorate on a larger scale, newly joining people should
+ be set in their ways.
+ If partisanship doesn't change much for an individual, then the changes
+ we see should be caused by the partisan leaning of people and groups entering
+ the electorate.
+ A generation of young voters might have an affinity towards the Republican
+ Party and this identification will carry forward into future elections.
+ Aggregate change appears more permanent because it accounts for a larger
+ pool of people having a long lasting tie to a party.
+ Affirming this view, Green et al.
+ find the lagged coefficient to be around .9 depending on the model specification
+ (2002, p.
+ 98-99).
+ An economic downturn or an unpopular president can damage a party in the
+ eyes of those coming into the electorate and these experiences shape their
+ partisanship for a long time.
+ 
+\end_layout
+
+\begin_layout Standard
+National aggregate macropartisanship is as stable according to Green et
+ al, but how does state level aggregate macropartisanship compare? For macropart
+isanship to change in the country overall, it should also experience change
+ at a state level.
+ Given the large changes in partisanship and voting behavior of some states
+ since the 1950s, there should be variation between states in the stability
+ of party identification.
+ Economic performance is not equal across the country.
+ By looking at changes on a state level, it is possible to gauge how differences
+ in economic performance influenced aggregate macropartisanship.
+ Presidential approval also varies by state and might influence the permanence
+ of partisanship in voters.
+\end_layout
+
+\begin_layout Standard
+In order to analyze differences in aggregate macropartisanship change across
+ states, I use a random effects model.
+ State macropartisanship is still a function of previous state macropartisanship
+, economic evaluations, and presidential approval.
+ However, I allow each state to have its own intercept and coefficient for
+ lagged macropartisanship.
+ Setting up the model in this way allows the full pool of states to be considere
+d, but each state can have its own value for macropartisan stability.
+ Economic and approval variables are modeled to have the same coefficient
+ across all states.
+ 
+\end_layout
+
+\begin_layout Standard
+To use the methods used by Green et al.
+ in 
+\emph on
+Partisan Hearts and Minds
+\emph default
+, I require three pieces of data measured at the state level.
+ The first and most obvious requirement is state level measures of macropartisan
+ship.
+ I use Enns and Koch's state partisanship data which includes all states
+ and spans from 1956 to 2010 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "enns2013publicopinion"
+
+\end_inset
+
+.
+ In order to calculate state partisanship, they pooled national surveys
+ which asked party ID questions.
+ Instead of just disaggregating the polls by year and state, Enns and Koch
+ use individual and state level characteristics along with MRP to more precisely
+ estimate state partisanship.
+ MRP uses individual characteristics like race, age, and gender along with
+ survey answers to generate predictions for how particular groups are likely
+ to respond.
+ 
+\end_layout
+
+\begin_layout Standard
+Figure 1 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename StateMacropartisanshipChange.pdf
+
+\end_inset
+
+State Macropolity 1955-2010
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ shows the change in macropartisanship over time in each of the fifty states.
+ It is clear that states differed in the amount of change they experienced.
+ Texas trended sharply downward as the electorate transitioned from Democrats
+ to Republicans over the time frame.
+ On the other hand, Colorado's partisan balance only changed slightly.
+ Another detail that jumps out from visual inspection is the amount of regional
+ variation.
+ Southern states like Alabama, Georgia, Louisiana, and Texas changed greatly,
+ as we would expect.
+ Michigan, Ohio, and Pennsylvania hardly changed at all over the 55 years.
+ Northeastern states like New York, Massachusetts, New Hampshire, and Vermont
+ tilted slightly more towards the Democrats over time.
+ The regional and state variation appears to show that aggregate party ID
+ stability depends on a local political context.
+ 
+\end_layout
+
+\begin_layout Standard
+The next important piece of data required is economic performance.
+ Green et al.
+ use consumer sentiment from the University of Michigan which is available
+ at the national level (Green et al.
+ 2002).
+ Consumer sentiment is not available on a state level, but other economic
+ measurements are collected over a long period of time.
+ The Bureau of Economic Analysis tracks Gross Domestic Product (GDP) for
+ states since the 1960s, but their methodology changed in 1997 in a way
+ that makes it unwise to compare values across this threshold.
+ State GDP is also less desirable than other measures since it might be
+ less tangible to the voters involved.
+ The effects of a rise or decline in state GDP might be less noticeable
+ than other economic measurements.
+ One benefit of a measure like consumer sentiment used by Green et al.
+ is that it has a more subjective element to it where people are judging
+ the economy based on conditions they experience.
+ I use state personal income change as an economic measurement.
+ It stands as a good compromise between data availability and gets at the
+ more subjective measure of the economy that is present in the consumer
+ sentiment index.
+ 
+\end_layout
+
+\begin_layout Standard
+The last piece of data needed in presidential approval.
+ National polling on presidential approval is ubiquitous enough to allow
+ for slicing approval into time units smaller than years.
+ This is not the case for presidential approval polling on the state level
+ currently.
+ The most comprehensive collection of state level approval polling is the
+ U.S.
+ Officials Job Approval Ratings data set (JARs) compiled by Beyle, Niemi,
+ and Sigelman 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "beyle2002gubernatorial"
+
+\end_inset
+
+.
+ It contains thousands of polls for presidential approval taken within in
+ a state.
+ For purposes of this study, only explicit approval questions are used.
+ When a state is polled multiple times in one year, I average the approval
+ and disapproval results for that year.
+ 
+\end_layout
+
+\begin_layout Standard
+A drawback of the JARs dataset for this project is that it does not include
+ very many polls earlier than the 1990s.
+ The bulk of the polls are from the 2000s.
+ As a result, I focus less on including approval since it only speaks to
+ a narrow time frame.
+ Going forward in extending this project, it should be possible to disaggregate
+ national polls that include the state of the respondent in order to construct
+ a more complete time series of state level presidential approval.
+ 
+\end_layout
+
+\end_body
+\end_document

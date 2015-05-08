@@ -4,6 +4,7 @@ library(reshape)
 library(plyr)
 library(DataCombine) # Kick-ass time series and data management package
 library(lme4) # Random effects package
+library(ggplot2)
 
 
 
@@ -68,6 +69,7 @@ state.opinion <- state.opinion[order(state.opinion$GeoName, state.opinion$year),
 state.opinion <- slide(state.opinion, Var = "macropolity", GroupVar = "GeoName", 
                        NewVar = "lagmacro", slideBy = -1, reminder = FALSE)
 
+write.csv(state.opinion, file = "StateMacropolityData.csv", row.names = FALSE)
 
 ## CONSUMER SENTIMENT ##
 
@@ -90,7 +92,7 @@ macro <- join(macro, natcs, by = "year")
 
 # remove old data
 
-rm(app.inc, pres.app, state.inc, state.opinion)
+rm(app.inc, pres.app, state.inc)
 
 # order
 
@@ -110,7 +112,19 @@ macro$party[macro$year >= 2001 & macro$year <= 2008] <- -1
 macro$party[macro$year >= 2009] <- 1
 
 
+###########################
+### Plot of Macropolity ###
+###########################
 
+state.plot.data <- state.opinion[ which (state.opinion$GeoName != "D.C."),]
+
+state.macro <- ggplot() + geom_line(data = state.plot.data, aes(x = year, y = macropolity)) + 
+                                    facet_wrap( ~ GeoName, ncol = 5) + 
+                                    ylab("Macropartisanship") +
+                                    xlab("Year: 1956-2010") + theme(axis.text.x = element_blank(),
+                                                         axis.ticks.x = element_blank())
+
+state.macro # export as pdf with 6 by 9 size
 
 ##############
 ### MODELS ###
@@ -119,40 +133,51 @@ macro$party[macro$year >= 2009] <- 1
 
 ## Everything
 
-alltry.re <- lmer(macropolity ~ lagmacro + perinc*party + party + approval*party + approval + 
-                    (1|GeoName) + (1|year), data = macro)
+alltry.re <- lmer(macropolity ~ lagmacro + perinc*party + party + approval*party + approval +
+                                   (1 + lagmacro |GeoName), data = macro)
 
 summary(alltry.re)
+coefs <- coef(alltry.re)
 
-alltry.fe <- lm(macropolity ~ lagmacro + perinc*party + party + approval*party + approval + 
-                  as.factor(GeoName) + as.factor(year), data = macro)
+# Get Table for State b's
+state.list <- coefs$GeoName[,1:2]
+states <- row.names(state.list)
+b <- state.list[,2]
+b <- round(b, digits = 2)
+state.b <- as.data.frame(cbind(states, b))
+state.b[order(state.b$b),]
 
-summary(alltry.fe)
+fixef(alltry.re)
+ranef(alltry.re)
+
 
 ## Just economy
 
-econ.re <- lmer(macropolity ~ lagmacro + perinc*party + party + (1|GeoName) + (1|year), 
-                data = macro)
+econ.re <- lmer(macropolity ~ lagmacro + perinc*party + party + (1 + lagmacro |GeoName), 
+                  data = macro)
 
 summary(econ.re)
+econ.coefs <- coef(econ.re)
 
-econ.fe <- lm(macropolity ~ lagmacro + perinc*party + party + as.factor(GeoName) + 
-                as.factor(year), data = macro)
+# Econ Coefs Table
+state.econ.list <- econ.coefs$GeoName[,1:2]
+states.econ <- row.names(state.econ.list)
+b.econ <- state.econ.list[,2]
+b.econ <- round(b.econ, digits = 2)
+state.econ.b <- as.data.frame(cbind(states.econ, b.econ))
+state.econ.b[order(state.econ.b$b.econ),]
 
-summary(econ.fe)
+## Regress on lag
 
-## Full Model by State
+lag.re <- lmer(macropolity ~ lagmacro + (1 + lagmacro | GeoName), data = macro)
 
-ab.alltry.re <- lm(macropolity ~ lagmacro + perinc*party + party + approval*party + approval 
-                   , data = macro, GeoName == "Alabama")
+summary(lag.re)
+fixef(lag.re)
+coef(lag.re)
+ranef(lag.re)
 
-summary(ab.alltry.re)
 
-ak.alltry <- lm(macropolity ~ lagmacro + perinc*party + party + approval*party + approval,
-                data = macro, GeoName == "Alaska")
-
-summary(ak.alltry)
-
+### Extra Stuff
 
 fits <- lmList(macropolity ~ lagmacro + perinc*party + approval*party | GeoName, data = macro,
                na.action = na.omit)
